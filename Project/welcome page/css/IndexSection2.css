@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+.sectionTitle {
+	color : #444444;
+	text-align: center;
+	font-family: "微软雅黑";
+	padding: 30px 0 16px;
+	font-size: 46px;
+	font-weight: normal;
+	letter-spacing: 2px;
+	line-height: 56px;
+	width: 100%;
+}
+.sectionSubTitle{
+	text-align: center;
+	font-family: "微软雅黑";
+	color : #444444;
+	padding: 0 0 69px;
+	font-size: 18px;
+	line-height: 36px;
+	width: 960px;
+	height: 0px;
+	margin: 20px auto;
+}
+
+.finalTitle{
+	color : #444444;
+	text-align: center;
+	vertical-align: central;
+	vertical-align: center;
+	font-family: "微软雅黑";
+	padding: 5px 0 5px 0;
+	font-size: 46px;
+	font-weight: normal;
+	letter-spacing: 2px;
+	line-height: 56px;
+	margin: 75px auto;
+	width: 900px;
+	margin-top: 250px;
+	background: #FFFFFF;
+	opacity:0.95;
+	filter:alpha(opacity=40); /* 针对 IE8 以及更早的版本 */
+}
+.tryNow{
+	padding: 10px 0px 0px 20px;
+	vertical-align: central;
+	vertical-align: center;
+	text-align: center;
+	letter-spacing: 5px;
+	border: 0px;
+	outline: none;
+	margin: 75px auto;
+	width: 300px;
+	height: 50px;
+	font-size: 20px;
+	color: #fff;
+	font-weight: 100;
+	font-family: "微软雅黑";
+	background: #0080FF;
+	border-radius: 0px;
+	cursor: pointer;
+	opacity:0.8;
+	filter:alpha(opacity=40); /* 针对 IE8 以及更早的版本 */
+}
+.shake{
+	width: 100%;
+	text-align: center;	
+}

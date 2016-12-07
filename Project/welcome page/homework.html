@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <style>
+            li{
+                width: 12%;
+            }
+            li:hover {
+                background-color:gray;
+            }
+        </style>
+        <script>
+            function showTablename(str) {
+                showAttrname("");
+                showRelatedtable("");
+                if (str == "") { 
+                    document.getElementById("tableHint").innerHTML = "";
+                    return;
+                } else {
+                    if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                    //document.getElementById("txtHint").innerHTML = str;
+                    } else {
+                        // code for IE6, IE5
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    xmlhttp.onreadystatechange = function() {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            document.getElementById("tableHint").innerHTML = xmlhttp.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "gettablehint.php?q="+str, true);
+                    xmlhttp.send();
+                }
+            }
+            
+            function showAttrname(str) {
+                showRelatedtable("");
+                if (str == "") { 
+                    document.getElementById("attrHint").innerHTML = "";
+                    return;
+                } else {
+                    if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                    //document.getElementById("txtHint").innerHTML = str;
+                    } else {
+                        // code for IE6, IE5
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    xmlhttp.onreadystatechange = function() {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            document.getElementById("attrHint").innerHTML = xmlhttp.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "getattribute.php?q="+str, true);
+                    xmlhttp.send();
+                }
+            }
+            function showRelatedtable(str) {
+                if (str == "") { 
+                    document.getElementById("relatedTable").innerHTML = "";
+                    return;
+                } else {
+                    if (window.XMLHttpRequest) {
+                    // code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                    //document.getElementById("txtHint").innerHTML = str;
+                    } else {
+                        // code for IE6, IE5
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    xmlhttp.onreadystatechange = function() {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            document.getElementById("relatedTable").innerHTML = xmlhttp.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "showrelatedtable.php?q="+str, true);
+                    xmlhttp.send();
+                }
+            }
+            
+            
+            function changecolor()
+            {
+                document.getElementById("hi").style.backgroundColor="red";
+            }
+            
+            
+        </script>
+	</head>
+    <body>
+        <div id = "search_tb">
+         <form action="" >
+            <text style='font-size:30px'>Search table:</text> <input type="text" style='font-size:30px' onkeyup = "showTablename(this.value)" >
+        </form>  
+        </div>
+        <p>Table Search Result : <span id="tableHint"></span></p>
+        <HR style=FILTER: alpha(opacity=1,finishopacity=0,style=3) width=100% color=#F5F5F5 SIZE=1 /> 
+        <p> <span id="attrHint"></span></p>
+        <HR style=FILTER: alpha(opacity=1,finishopacity=0,style=3) width=100% color=#FFFFFF SIZE=1 /> 
+        <p> <span id="relatedTable"></span></p>
+        
+    </body>
+<html>
