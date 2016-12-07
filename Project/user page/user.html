@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="renderer" content="webkit">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="toTop" content="true"><!-- 用于添加返回顶部按钮-->
+        <title>welovefood.com</title>
+        <link rel="shortcut icon" href="/Public/img/favicon.ico">
+        <!-- <link rel="shortcut icon" href="favicon.ico"> -->
+		<!--<link rel="bookmark"  type="image/x-icon"  href="/Public/img/favicon.ico">-->
+        <link rel="Stylesheet" type="text/css" href="./css/nav.css" /> 
+        <link rel="Stylesheet" type="text/css" href="./jsLib/myAlert/myAlert.css"/>  
+        <!--<link rel="Stylesheet" type="text/css" href="./css/homeHead.css"/>  -->
+        <script src="./jsLib/jquery/jquery.min.js"></script>
+        <script src="./jsLib/jquery_ui/jquery-ui.js"></script>
+        <script src="./jsLib/myAlert/myAlert.js"></script><!-- 此js用于弹出自定义的Alert -->
+        <script src="./jsLib/ToTop/toTop.js"></script><!-- 此js用于添加返回顶部按钮 -->
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		
+		<script type="text/javascript">
+        	var public_url = "/Project/user page";
+        	var model_url = "/custom/home";
+			var app_url = "";
+			var app_url_main = "";
+			var app_url_timeline = "../timeline_page/timeline.html";
+        	var app_url_post = "../post_page/post_page.html";
+			var app_url_profile = "../profile_page/user_profile.html"
+			var app_url_chat = "../chat_page/chatWindow.html"
+			var app_url_search = "../search_page/search.html";
+			var app_url_notice =	"../notisfication_page/notisification.html";
+			var app_url_photo = "../photo_page/personalphoto.html";//ok
+			var app_url_manage_profile = "../manage_profile_page/manage_profile.html";//ok
+    		var app_url_friend = "../search_friend/search_friend.html";
+			var app_url_safe = "../personal_safe/personal_safe.html";//ok
+			var starOnIcon = "/Public/jsLib/raty-2.7.0/lib/images/star-on.png"
+    		var starOffIcon = "/Public/jsLib/raty-2.7.0/lib/images/star-off.png"
+    		var starHalfIcon = "/Public/jsLib/raty-2.7.0/lib/images/star-half.png"
+    		var toTopIcon = "./jsLib/ToTop/1.png"
+        </script>
+		 
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<style>
+		
+			/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+			.row.content {height: 500px}
+			.col-sm-3.sidenav {width: 250px} //adjust john's blog
+			  .likeRow {
+				  height: 30px
+			  }
+			 
+			/* Set gray background color and 100% height */
+			.sidenav {
+			  background-color: #f1f1f1;
+			  height: 100%;
+			  /*overflow:hidden;*/
+			}
+	
+			/* Set black background color, white text and some padding */
+			footer {
+				background-color: #555;
+				color: white;
+				padding: 2px 0 1px 0;
+				position: fixed; 
+				left: 0;
+				bottom: 0;
+				width: 100%;	
+				float: left;	  
+			}
+			/* On small screens, set height to 'auto' for sidenav and grid */
+			@media screen and (max-width: 767px) {
+			  .sidenav {
+				height: auto;
+				padding: 15px;
+			  }
+			  .row.content {height: auto;} 
+			}
+			  li {
+				  list-style-type: none;
+			  }
+		</style>
+        <!--<script src="/HtmlJS/Page.js"></script>-->
+    </head>
+
+    <body>
+
+		<nav class="navbar navbar-inverse" style = "position:fixed;right:0;left:0;z-index:1030">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" >
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>                        
+					</button>
+					<li><a href="#"><img src="image/foodIcon.png" width ="50" height="50" ></a></li> 
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
+					
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#main" id="btn_myhome" onclick='toMyhome()'>My Home</a></li>
+					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group input-group">
+							<input type="text" class="form-control" placeholder="Search..">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
+							</span>        
+						</div>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><span class="glyphicon glyphicon-globe"></span></a></li>  
+						<li><a href="#"><span class="glyphicon glyphicon-transfer"></span></a></li>  
+						<li class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown">
+							<span class="glyphicon glyphicon-user"></span> My Account <span class="caret"></span></a>
+							<ul class="dropdown-menu" width = "55px">
+								<li><a href="#main">Privacy</a></li>
+								<li><a href="#" onclick = "logout()">Log Out</a></li> 
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+	    <div class="Part">
+		<!--
+			<div class="homeHead">
+				<ul>
+					<li id="left-li">
+						<div class='homeHeadLogo'>
+							<a href="/Home/Index/index"><img alt="Logo" src="/Public/img/LogoBulbSmall.png"></a>
+						</div>
+						<div class='homeHeadLogoText'>
+							<h1>华师智库<span>Creation & Connection</span></h1>
+						</div>						    						    
+					</li>
+					<li id="right-li">
+						<ul id="sub-right-ul">
+							<li id="welcome-user">
+							  <div class='welcomeText'>欢迎您！<span>方敏达</span></div>
+							</li>
+							<li id="exit-icon">
+								<a href="/Home/Index/logout"><img alt="Exit" src="/Public/img/icon/exit.png" title="退出登录"></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		-->
+		
+		    <div class="Part_inner clearfix">
+				<div class="nav navb">
+					<p id = "page_owner_id"></p>
+					<a href="#main" id="btn_main" class="clickble"><div class="icon"><img src="" alt="error"></div>Timeline</a>		                  		            
+					<a href="#profile" id="btn_profile" class="clickble"><div class="icon"><img src="" alt="error"></div>Profile</a>           
+					<a href="#friends" id="btn_friends" class="clickble"><div class="icon"><img src="" alt="error"></div>Friends</a>
+					<a href="#message" id="btn_message" class="clickble"><div class="icon"><img src="" alt="error"></div>Chat</a>
+					<a href="#search" id="btn_search" class="clickble"><div class="icon"><img src="" alt="error"></div>Search</a>
+					<a href="#posts" id="btn_posts" class="clickble"><div class="icon"><img src="" alt="error"></div>Posts</a>
+					<a href="#notice" id="btn_notice" class="clickble"><div class="icon"><img src="" alt="error"></div>Notification</a>
+					<a href="#information" id="btn_info" class="clickble"><div class="icon"><img src="" alt="error"></div>Management</a>    
+					<div class="info_child nav_child">
+						<a href="#base_info" id="btn_base_info" class="clickble"><div class="icon"><img src="" alt="error"></div>Basic Info</a>
+						<a href="#photo" id="btn_photo" class="clickble"><div class="icon"><img src="" alt="error"></div>Photo</a>
+						<a href="#safe" id="btn_safe" class="clickble"><div class="icon"><img src="" alt="error"></div>Security</a>
+					</div>
+				</div>
+				<div class="info_container" style= "padding: 60px 0 60px 0;"></div>		       
+		    </div>
+	    </div>
+	    
+	    
+		<footer class="container-fluid">
+		  <p style="text-align: center">Food Social Team © 2016</p>
+		</footer>
+		
+		<div class='messagePopOut' style='display:none'>
+         	<div class='messagePopText'>
+         		
+         	</div>
+         	<div class='messagePopButton'>
+         		OK
+         	</div>        	
+         </div>
+	    <script src="./js/home/User.js"></script>
+    </body>
+
+</html>
